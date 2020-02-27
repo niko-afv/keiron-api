@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect('/login');
-});
+//Route::get('/', function () {
+//    return redirect('/login');
+//});
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
