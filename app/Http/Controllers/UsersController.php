@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Tickets;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -46,9 +47,22 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function show($id)
     {
-        //
+        $user = User::find($id)->has('tickets')->get();
+        /*
+        $data = $user->tickets->map(function ($item) use($user){
+            return [
+                'id'=> $item->id,
+                'user'=> $user->email,
+                'order'=> $item->ticket_pedido
+            ];
+        });
+        */
+        return response()->json($user);
     }
 
     /**
@@ -83,5 +97,10 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function tickets($id)
+    {
+        return Tickets::collection(User::find($id)->tickets);
     }
 }
