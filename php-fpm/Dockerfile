@@ -35,5 +35,3 @@ RUN curl -s https://getcomposer.org/installer | php \
 
 
 ENV  PATH="$PATH:/root/.composer/vendor/bin"
-
-#RUN git clone https://github.com/niko-afv/keiron-api.git .
