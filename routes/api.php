@@ -33,5 +33,6 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('/tickets','TicketsController@index');
     Route::put('/tickets/{ticket_id}','TicketsController@update');
     Route::post('/tickets','TicketsController@store');
+    Route::delete('/tickets/{ticket_id}','TicketsController@destroy');
 });
 

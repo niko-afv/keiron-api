@@ -38,13 +38,21 @@ class TicketsController extends Controller
         return $resource->asResource();
     }
 
-    protected function store(Request $request){
+    public function store(Request $request){
         $user = User::where('email', $request->user)->first();
         $new_ticket = [
             'ticket_pedido' => $request->order,
             'id_user' => $user->id
         ];
         Ticket::create($new_ticket);
+        return response()->json([
+            'error' => false,
+            'data' => $this->getTicketscollection()
+        ]);
+    }
+
+    public function destroy($id){
+        Ticket::find($id)->delete();
         return response()->json([
             'error' => false,
             'data' => $this->getTicketscollection()
