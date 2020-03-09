@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\MyTicketResponse;
 use App\Http\Resources\Tickets;
+use App\Ticket;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -16,7 +18,7 @@ class UsersController extends Controller
     public function index()
     {
         return response()->json([
-            'data'=> User::where('id_tipouser',2)->get()
+            'data'=> User::all()
         ]);
     }
 
@@ -101,6 +103,11 @@ class UsersController extends Controller
 
     public function tickets($id)
     {
-        return Tickets::collection(User::find($id)->tickets);
+        $ticketscollection = User::find($id)->tickets;
+        $resource = new MyTicketResponse($ticketscollection);
+        return response()->json([
+            'error' => false,
+            'data' => $resource->asResource()
+        ]);
     }
 }

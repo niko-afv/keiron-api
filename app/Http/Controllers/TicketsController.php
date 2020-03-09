@@ -23,7 +23,9 @@ class TicketsController extends Controller
 
     public function update(Request $request, $id) {
         $user = User::where('email', $request->user)->first();
+
         $ticket = Ticket::find($id);
+        $ticket->ticket_pedido = $request->order;
         $ticket->user()->associate($user);
         $ticket->save();
         return response()->json([
