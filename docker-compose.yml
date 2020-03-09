@@ -1,0 +1,43 @@
+version: '2'
+services:
+  database:
+    image: mysql:5.7
+    container_name: database
+    volumes:
+      - ./mysql/data/db:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpw
+      MYSQL_DATABASE: keirondb
+      MYSQL_USER: keiron
+      MYSQL_PASSWORD: keironpw
+    networks:
+      - app-network
+  server:
+    image: nginx:latest
+    container_name: webserver
+    ports:
+      - 80:80
+    volumes:
+      - ./api:/usr/share/nginx/html
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    volumes_from:
+      - api
+    networks:
+      - app-network
+  api:
+    build: ./php-fpm
+    container_name: api
+    volumes:
+      - ./api:/usr/share/nginx/html
+    networks:
+      - app-network
+    links:
+      - database:database
+networks:
+  app-network:
+    driver: bridge
+
