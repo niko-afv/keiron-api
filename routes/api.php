@@ -32,5 +32,6 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('/tickets/{ticket_id}','TicketsController@show');
     Route::get('/tickets','TicketsController@index');
     Route::put('/tickets/{ticket_id}','TicketsController@update');
+    Route::post('/tickets','TicketsController@store');
 });
 

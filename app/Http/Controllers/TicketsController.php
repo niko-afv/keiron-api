@@ -37,4 +37,17 @@ class TicketsController extends Controller
         $resource = new MyTicketResponse($ticketscollection);
         return $resource->asResource();
     }
+
+    protected function store(Request $request){
+        $user = User::where('email', $request->user)->first();
+        $new_ticket = [
+            'ticket_pedido' => $request->order,
+            'id_user' => $user->id
+        ];
+        Ticket::create($new_ticket);
+        return response()->json([
+            'error' => false,
+            'data' => $this->getTicketscollection()
+        ]);
+    }
 }
