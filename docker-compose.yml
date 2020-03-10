@@ -38,6 +38,8 @@ services:
       - app-network
     links:
       - database:keiron-db
+    env_file:
+      - ./.env
   client:
     build: ./client
     container_name: keiron-client

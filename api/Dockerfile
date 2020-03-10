@@ -36,6 +36,7 @@ RUN curl -s https://getcomposer.org/installer | php \
 
 COPY . ./
 RUN composer install
+RUN php artisan passport:install
 
 
 ENV  PATH="$PATH:/root/.composer/vendor/bin"
