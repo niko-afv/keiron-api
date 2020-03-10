@@ -17,7 +17,7 @@ Project to apply as web developer on [Keiron.cl](http://keiron.cl/)
 | [MySQL](https://www.mysql.com/)  | Database Server  |
 | [Nginx](https://www.nginx.com/)  | Web Server  |
 | [Docker](https://www.docker.com/)  | Containers Tool  |
-| [Docker Compose](https://docs.docker.com/compose/)  | multi container orchestrator  |
+| [Docker Compose](https://docs.docker.com/compose/)  | Multi Container Orchestrator  |
 
 ### How To install And Test
  
