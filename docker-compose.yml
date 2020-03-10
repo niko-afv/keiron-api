@@ -10,9 +10,10 @@ services:
     ports:
       - 3306:3306
     environment:
-      DB_DATABASE: keirondb
-      DB_USERNAME: keiron
-      DB_PASSWORD: rootpw
+      MYSQL_ROOT_PASSWORD: rootpw
+      MYSQL_DATABASE: keirondb
+      MYSQL_USER: keiron
+      MYSQL_PASSWORD: keironpw
     networks:
       - app-network
   server:
