@@ -34,8 +34,15 @@ RUN curl -s https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
     && composer global require "laravel/installer"
 
+# Install dependencies
+COPY composer.json composer.json
+RUN composer install --prefer-dist --no-scripts --no-dev --no-autoloader && rm -rf /root/.composer
+
+# Copy codebase
 COPY . ./
-RUN composer install
+
+# Finish composer
+RUN composer dump-autoload --no-scripts --no-dev --optimize
 RUN php artisan passport:install
 
 
