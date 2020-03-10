@@ -15,6 +15,9 @@ Project to apply as web developer on [Keiron.cl](http://keiron.cl/)
 | [React JS](https://es.reactjs.org/)  | Front End Framework  |
 | [React Bootstrap](https://react-bootstrap.github.io/)  | UI Framework  |
 | [MySQL](https://www.mysql.com/)  | Database Server  |
+| [Nginx](https://www.nginx.com/)  | Web Server  |
+| [Docker](https://www.docker.com/)  | Containers Tool  |
+| [Docker Compose](https://docs.docker.com/compose/)  | multi container orchestrator  |
 
 ### How To install And Test
  
@@ -54,3 +57,10 @@ $ docker ps
 | Client APP  | ``` 127.0.0.1:3000 ```  |
 | API  | ``` 127.0.0.1:80 ```  |
 | MySQL  | ``` 127.0.0.1:3306 ```  |
+
+### First Login
+Login as admin
+```
+user: niko.afv@gmail.com
+pass: keiron-user
+``` 
