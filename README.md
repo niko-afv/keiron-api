@@ -20,6 +20,8 @@ Project to apply as web developer on [Keiron.cl](http://keiron.cl/)
 | [Docker Compose](https://docs.docker.com/compose/)  | Multi Container Orchestrator  |
 
 ### How To install And Test
+
+###### NOTE: To run this project, is needed have Docker and docker-compose installed in your system
  
 1.- Clone this repo:
 ```sh
