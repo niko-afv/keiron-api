@@ -1,6 +1,7 @@
 FROM php:7.2-fpm
 MAINTAINER niko.afv <niko.afv@gmail.com>
 WORKDIR /usr/share/nginx/html
+
 RUN chown -R www-data:www-data /usr/share/nginx/html
 
 RUN rm /etc/apt/preferences.d/no-debian-php
@@ -31,8 +32,10 @@ RUN curl -L https://npmjs.org/install.sh | sudo sh
 
 RUN curl -s https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
-    && composer global require "laravel/installer" \
-    && composer install
+    && composer global require "laravel/installer"
+
+COPY . ./
+RUN composer install
 
 
 ENV  PATH="$PATH:/root/.composer/vendor/bin"

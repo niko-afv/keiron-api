@@ -29,7 +29,7 @@ services:
     networks:
       - app-network
   api:
-    build: ./php-fpm
+    build: ./api
     container_name: keiron-api
     volumes:
       - ./api:/usr/share/nginx/html
