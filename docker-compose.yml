@@ -10,10 +10,9 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: rootpw
-      MYSQL_DATABASE: keirondb
-      MYSQL_USER: keiron
-      MYSQL_PASSWORD: keironpw
+      DB_DATABASE: keirondb
+      DB_USERNAME: keiron
+      DB_PASSWORD: rootpw
     networks:
       - app-network
   server:
@@ -33,6 +32,7 @@ services:
     container_name: keiron-api
     volumes:
       - ./api:/usr/share/nginx/html
+      - /usr/share/nginx/html/vendor
     networks:
       - app-network
     links:
