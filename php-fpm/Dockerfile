@@ -31,7 +31,8 @@ RUN curl -L https://npmjs.org/install.sh | sudo sh
 
 RUN curl -s https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
-    && composer global require "laravel/installer"
+    && composer global require "laravel/installer" \
+    && composer install
 
 
 ENV  PATH="$PATH:/root/.composer/vendor/bin"
