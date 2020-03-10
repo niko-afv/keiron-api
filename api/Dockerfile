@@ -43,7 +43,5 @@ COPY . ./
 
 # Finish composer
 RUN composer dump-autoload --no-scripts --no-dev --optimize
-RUN php artisan passport:install
-
 
 ENV  PATH="$PATH:/root/.composer/vendor/bin"
